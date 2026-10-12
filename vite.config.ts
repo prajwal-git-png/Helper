@@ -25,21 +25,15 @@ export default defineConfig(() => {
           orientation: 'portrait-primary',
           icons: [
             {
-              src: '/sales-192.png',
-              sizes: '192x192',
-              type: 'image/png',
+              src: '/sales.jpg',
+              sizes: 'any',
+              type: 'image/jpeg',
               purpose: 'any',
             },
             {
-              src: '/sales-512.png',
-              sizes: '512x512',
-              type: 'image/png',
-              purpose: 'any',
-            },
-            {
-              src: '/sales-maskable-512.png',
-              sizes: '512x512',
-              type: 'image/png',
+              src: '/sales.jpg',
+              sizes: 'any',
+              type: 'image/jpeg',
               purpose: 'maskable',
             },
           ],
