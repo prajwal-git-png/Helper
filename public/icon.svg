@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#ea580c" />
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#2563eb" />
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)" />
+  <rect x="16" y="16" width="480" height="480" rx="96" fill="none" stroke="#334155" stroke-width="6" opacity="0.4"/>
+  
+  <!-- Appliance Outer Body -->
+  <rect x="96" y="116" width="320" height="280" rx="36" fill="#1e293b" stroke="#475569" stroke-width="8" />
+  
+  <!-- Digital Control Band / Display -->
+  <rect x="120" y="140" width="272" height="48" rx="14" fill="#090d16" stroke="#334155" stroke-width="4" />
+  <circle cx="150" cy="164" r="8" fill="#10b981" />
+  <circle cx="178" cy="164" r="8" fill="#f59e0b" />
+  <rect x="210" y="156" width="100" height="16" rx="6" fill="#38bdf8" opacity="0.8" />
+  <!-- Temperature Indicator -->
+  <circle cx="360" cy="164" r="12" fill="url(#accentGrad)" />
+
+  <!-- Glass Door / Cavity -->
+  <rect x="120" y="208" width="272" height="164" rx="20" fill="#0f172a" stroke="#475569" stroke-width="5" />
+  
+  <!-- Interior Wire Rack & Convection Heat Waves -->
+  <line x1="144" y1="260" x2="368" y2="260" stroke="#64748b" stroke-width="6" stroke-linecap="round"/>
+  <line x1="144" y1="310" x2="368" y2="310" stroke="#64748b" stroke-width="6" stroke-linecap="round"/>
+  
+  <!-- Heat Flow Spiral / AI Spark -->
+  <path d="M 216 270 Q 256 220 296 270 T 336 270" fill="none" stroke="url(#accentGrad)" stroke-width="8" stroke-linecap="round" />
+  
+  <!-- Smart Spark Icon Badge -->
+  <g transform="translate(350, 70)">
+    <circle cx="40" cy="40" r="44" fill="url(#accentGrad)" filter="drop-shadow(0px 8px 16px rgba(245, 158, 11, 0.4))" />
+    <path d="M 40 18 L 46 34 L 62 40 L 46 46 L 40 62 L 34 46 L 18 40 L 34 34 Z" fill="#ffffff" />
+  </g>
+</svg>

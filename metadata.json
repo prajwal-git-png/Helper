@@ -1,0 +1,8 @@
+{
+  "name": "Remix Remix Smart Sales Promoter",
+  "description": "AI-powered, multi-store, multi-brand retail appliance sales presentation platform with customer showroom presentation mode, exact dimension converter, visual recipes, and AI cataloguer.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

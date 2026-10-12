@@ -1,0 +1,386 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-ios: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", system-ui, sans-serif;
+    --font-display: "Outfit", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+    
+    /* Default: 🖤 Obsidian Black Theme */
+    --bg-app: #08090C;
+    --bg-surface: rgba(18, 20, 26, 0.80);
+    --bg-surface-elevated: rgba(24, 27, 35, 0.92);
+    --bg-card: rgba(15, 17, 23, 0.74);
+    --bg-subtle: rgba(255, 255, 255, 0.05);
+    --bg-input: rgba(12, 13, 18, 0.85);
+
+    --border-color: rgba(245, 239, 235, 0.12);
+    --border-subtle: rgba(245, 239, 235, 0.06);
+    --border-highlight: rgba(197, 168, 128, 0.35);
+
+    --text-primary: #FAF7F2;
+    --text-secondary: #D4CDC3;
+    --text-muted: #9E9689;
+
+    /* Luxury Champagne Bronze Accent (Replacing Orange) */
+    --accent-primary: #C5A880;
+    --accent-hover: #D4BA95;
+    --accent-subtle: rgba(197, 168, 128, 0.14);
+    --accent-text: #090A0D;
+    --accent-border: rgba(197, 168, 128, 0.35);
+
+    --ambient-1: rgba(197, 168, 128, 0.08);
+    --ambient-2: rgba(245, 239, 235, 0.03);
+  }
+
+  /* 🤍 1. Cream Theme (Luxury Warm Porcelain & Crisp Charcoal) */
+  html.theme-cream, body.theme-cream, .theme-cream {
+    --bg-app: #F7F4EE;
+    --bg-surface: rgba(255, 255, 255, 0.90);
+    --bg-surface-elevated: #FFFFFF;
+    --bg-card: #FFFFFF;
+    --bg-subtle: rgba(235, 228, 218, 0.65);
+    --bg-input: #FFFFFF;
+
+    --border-color: rgba(45, 35, 20, 0.11);
+    --border-subtle: rgba(45, 35, 20, 0.06);
+    --border-highlight: rgba(150, 112, 56, 0.40);
+
+    --text-primary: #1C1917;
+    --text-secondary: #44403C;
+    --text-muted: #78716C;
+
+    /* Deep Polished Bronze & Champagne Accent on Cream */
+    --accent-primary: #967038;
+    --accent-hover: #835E28;
+    --accent-subtle: rgba(150, 112, 56, 0.12);
+    --accent-text: #FFFFFF;
+    --accent-border: rgba(150, 112, 56, 0.30);
+
+    --ambient-1: rgba(197, 168, 128, 0.15);
+    --ambient-2: rgba(220, 210, 195, 0.30);
+  }
+
+  /* 🖤 2. Black Theme (Obsidian Noir & Brushed Champagne) */
+  html.theme-obsidian-black, body.theme-obsidian-black, .theme-obsidian-black {
+    --bg-app: #08090C;
+    --bg-surface: rgba(18, 20, 26, 0.80);
+    --bg-surface-elevated: rgba(24, 27, 35, 0.92);
+    --bg-card: rgba(15, 17, 23, 0.74);
+    --bg-subtle: rgba(255, 255, 255, 0.05);
+    --bg-input: rgba(12, 13, 18, 0.85);
+
+    --border-color: rgba(245, 239, 235, 0.12);
+    --border-subtle: rgba(245, 239, 235, 0.06);
+    --border-highlight: rgba(197, 168, 128, 0.35);
+
+    --text-primary: #FAF7F2;
+    --text-secondary: #D4CDC3;
+    --text-muted: #9E9689;
+
+    --accent-primary: #C5A880;
+    --accent-hover: #D4BA95;
+    --accent-subtle: rgba(197, 168, 128, 0.14);
+    --accent-text: #090A0D;
+    --accent-border: rgba(197, 168, 128, 0.35);
+
+    --ambient-1: rgba(197, 168, 128, 0.08);
+    --ambient-2: rgba(245, 239, 235, 0.03);
+  }
+
+  html {
+    font-family: var(--font-ios);
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    background-color: var(--bg-app);
+    color: var(--text-primary);
+  }
+
+  body {
+    background-color: var(--bg-app);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.025em;
+  }
+}
+
+/* ==========================================================================
+   AMBIENT LIGHTING GLOW (Warm Champagne & Soft Cream)
+   ========================================================================== */
+.ambient-glow-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.ambient-glow-amber, .ambient-glow-accent {
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 580px;
+  height: 500px;
+  background: radial-gradient(circle, var(--ambient-1) 0%, transparent 70%);
+  filter: blur(90px);
+  border-radius: 9999px;
+  opacity: 0.9;
+}
+
+.ambient-glow-cream, .ambient-glow-secondary {
+  position: absolute;
+  bottom: 6%;
+  right: -80px;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, var(--ambient-2) 0%, transparent 70%);
+  filter: blur(100px);
+  border-radius: 9999px;
+  opacity: 0.8;
+}
+
+/* ==========================================================================
+   THEME-AWARE LIQUID GLASS PANELS & DOCK
+   ========================================================================== */
+.glass-panel {
+  background: var(--bg-surface);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid var(--border-color);
+  box-shadow: 
+    0 12px 32px -8px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+}
+
+.theme-cream .glass-panel {
+  box-shadow: 
+    0 10px 28px -6px rgba(45, 35, 20, 0.06),
+    0 2px 6px -1px rgba(45, 35, 20, 0.03),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
+}
+
+.glass-panel-elevated {
+  background: var(--bg-surface-elevated);
+  backdrop-filter: blur(34px) saturate(190%);
+  -webkit-backdrop-filter: blur(34px) saturate(190%);
+  border: 1px solid var(--border-color);
+  box-shadow: 
+    0 20px 42px -12px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+}
+
+.theme-cream .glass-panel-elevated {
+  box-shadow: 
+    0 16px 36px -8px rgba(45, 35, 20, 0.08),
+    0 4px 12px -2px rgba(45, 35, 20, 0.04),
+    inset 0 1px 0 0 #FFFFFF;
+}
+
+/* Floating iOS Tab Bar Dock */
+.glass-tab-bar {
+  background: var(--bg-surface-elevated);
+  backdrop-filter: blur(36px) saturate(190%);
+  -webkit-backdrop-filter: blur(36px) saturate(190%);
+  border: 1px solid var(--border-color);
+  box-shadow: 
+    0 20px 40px -10px rgba(0, 0, 0, 0.35),
+    0 4px 14px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+}
+
+.theme-cream .glass-tab-bar {
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 
+    0 16px 36px -10px rgba(45, 35, 20, 0.12),
+    0 4px 12px rgba(45, 35, 20, 0.05),
+    inset 0 1px 0 0 #FFFFFF;
+}
+
+/* iOS Dynamic Island Capsule */
+.glass-island {
+  background: var(--bg-surface-elevated);
+  backdrop-filter: blur(32px) saturate(180%);
+  -webkit-backdrop-filter: blur(32px) saturate(180%);
+  border: 1px solid var(--border-color);
+  box-shadow: 
+    0 14px 28px -6px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+}
+
+.theme-cream .glass-island {
+  background: #FFFFFF;
+  box-shadow: 
+    0 12px 28px -6px rgba(45, 35, 20, 0.1),
+    inset 0 1px 0 0 #FFFFFF;
+}
+
+/* Translucent Glass Pill */
+.glass-pill {
+  background: var(--bg-subtle);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+}
+
+/* ==========================================================================
+   BUTTONS (Brushed Champagne Gold & Polished Bronze)
+   ========================================================================== */
+.glass-button-primary {
+  background: var(--accent-primary);
+  color: var(--accent-text) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--accent-border);
+  box-shadow: 
+    0 8px 20px -4px rgba(150, 112, 56, 0.3),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.25);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-button-primary:hover {
+  background: var(--accent-hover);
+}
+
+.glass-button-primary:active {
+  transform: scale(0.96);
+  box-shadow: 0 4px 10px -2px rgba(150, 112, 56, 0.25);
+}
+
+.glass-button-secondary {
+  background: var(--bg-subtle);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-button-secondary:hover {
+  border-color: var(--border-highlight);
+  background: var(--bg-subtle);
+}
+
+.glass-button-secondary:active {
+  transform: scale(0.96);
+}
+
+/* Glass Card Interactive Lift */
+.glass-card {
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.22s ease;
+}
+
+.glass-card:hover {
+  border-color: var(--border-highlight);
+  box-shadow: 
+    0 16px 36px -10px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
+}
+
+/* ==========================================================================
+   COLOR REPLACEMENT & RETIRING ORANGE
+   Automatically re-route legacy orange/amber classes to Champagne Bronze!
+   ========================================================================== */
+.text-amber-400, .text-amber-500, .text-orange-400, .text-orange-500 {
+  color: var(--accent-primary) !important;
+}
+
+.bg-amber-500, .bg-orange-500, .bg-amber-400 {
+  background-color: var(--accent-primary) !important;
+  color: var(--accent-text) !important;
+}
+
+.border-amber-400, .border-amber-500, .border-orange-400 {
+  border-color: var(--accent-border) !important;
+}
+
+.fill-amber-400, .fill-orange-400 {
+  fill: var(--accent-primary) !important;
+}
+
+/* ==========================================================================
+   CREAM THEME COMPONENT NORMALIZATION
+   Guarantees 100% crisp contrast and legibility across all screens in Cream Theme
+   ========================================================================== */
+.theme-cream {
+  /* Text in cream mode becomes rich dark charcoal */
+  .text-white, .text-\[\#FAF6EE\], .text-\[\#F5EFEB\] {
+    color: #1C1917 !important;
+  }
+  .text-slate-100, .text-slate-200, .text-\[\#D8CFBF\] {
+    color: #44403C !important;
+  }
+  .text-slate-300, .text-slate-400, .text-\[\#9E9484\] {
+    color: #57534E !important;
+  }
+  .text-slate-500 {
+    color: #78716C !important;
+  }
+
+  /* Dark background overrides adapt to cream surfaces */
+  .bg-black\/60, .bg-black\/50, .bg-black\/40, .bg-black\/80 {
+    background-color: rgba(235, 228, 218, 0.6) !important;
+  }
+  .bg-black\/90, .bg-black {
+    background-color: #F7F4EE !important;
+  }
+
+  /* Borders on cream */
+  .border-\[\#F5EFEB\]\/10, .border-\[\#F5EFEB\]\/15, .border-\[\#F5EFEB\]\/20, .border-white\/10, .border-white\/\[0\.08\] {
+    border-color: rgba(45, 35, 20, 0.12) !important;
+  }
+
+  /* Input fields in cream mode */
+  input, textarea, select {
+    background-color: #FFFFFF !important;
+    color: #1C1917 !important;
+    border-color: rgba(45, 35, 20, 0.18) !important;
+  }
+  input::placeholder, textarea::placeholder {
+    color: #A8A29E !important;
+  }
+
+  /* Dynamic Island in cream mode */
+  .glass-island {
+    background-color: #FFFFFF !important;
+    border-color: rgba(45, 35, 20, 0.12) !important;
+  }
+
+  /* Pills with active contrast */
+  .bg-\[\#F5EFEB\]\/10 {
+    background-color: rgba(45, 35, 20, 0.08) !important;
+    color: #1C1917 !important;
+  }
+}
+
+/* Obsidian Black text utilities */
+.theme-obsidian-black {
+  .text-white {
+    color: #FAF6EE !important;
+  }
+}
+
+/* Helpers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.safe-area-bottom {
+  padding-bottom: max(16px, env(safe-area-inset-bottom));
+}
+
+.safe-area-top {
+  padding-top: max(10px, env(safe-area-inset-top));
+}
