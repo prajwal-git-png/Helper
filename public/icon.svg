@@ -1,13 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Sales logo">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&display=swap');
+    </style>
+  </defs>
   <rect width="512" height="512" fill="#000000"/>
   <text
     x="256"
-    y="285"
+    y="300"
     text-anchor="middle"
     fill="#ffffff"
-    font-family="Georgia, 'Times New Roman', serif"
-    font-size="170"
+    font-family="'Playfair Display', Georgia, serif"
+    font-size="180"
     font-weight="700"
-    letter-spacing="-8"
+    letter-spacing="-4"
   >SALES</text>
 </svg>
